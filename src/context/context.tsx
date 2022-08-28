@@ -1,14 +1,8 @@
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
-import { weatherReducer, Actions } from "./reducers";
+import { weatherReducer } from "./reducers";
+import { Actions } from "./actions";
 
-export type WeatherType = {
-  myLocation: string | undefined | null;
-  locations: string[];
-};
-
-export type InitialStateType = {
-  weather: WeatherType;
-};
+import { InitialStateType } from "../types";
 
 export const intialState: InitialStateType = {
   weather: {
