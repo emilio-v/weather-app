@@ -1,4 +1,4 @@
-import { WeatherType } from "../types";
+import { WeatherType, AlertType } from "../types";
 import { Action, Actions } from "./actions";
 
 export const weatherReducer = (
@@ -11,6 +11,20 @@ export const weatherReducer = (
         ...state,
         locations: [...state.locations, action.payload.location],
       };
+    default:
+      return state;
+  }
+};
+
+export const alertReducer = (
+  state: AlertType[],
+  action: Actions
+): Array<AlertType> => {
+  switch (action.type) {
+    case Action.ADD_ALERT:
+      return [...state, action.payload.alert];
+    case Action.DELETE_ALERT:
+      return state.filter((alert) => alert.id !== action.payload.id);
     default:
       return state;
   }

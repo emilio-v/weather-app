@@ -1,5 +1,5 @@
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
-import { weatherReducer } from "./reducers";
+import { weatherReducer, alertReducer } from "./reducers";
 import { Actions } from "./actions";
 
 import { InitialStateType } from "../types";
@@ -9,6 +9,7 @@ export const intialState: InitialStateType = {
     locations: [],
     myLocation: null,
   },
+  alerts: [],
 };
 
 const AppContext = createContext<{
@@ -19,8 +20,12 @@ const AppContext = createContext<{
   dispatch: () => null,
 });
 
-const mainReducer = ({ weather }: InitialStateType, action: Actions) => ({
+const mainReducer = (
+  { weather, alerts }: InitialStateType,
+  action: Actions
+) => ({
   weather: weatherReducer(weather, action),
+  alerts: alertReducer(alerts, action),
 });
 
 const AppProvider = ({ children }: { children: ReactNode }) => {

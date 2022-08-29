@@ -5,6 +5,9 @@ module.exports = {
     colors: {
       white: "#fff",
       oxfordBlue: "#2c2b41",
+      indigo: {
+        600: "#4f46e5",
+      },
     },
     extend: {},
   },
