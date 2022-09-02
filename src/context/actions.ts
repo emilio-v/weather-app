@@ -12,3 +12,22 @@ export type Actions =
   | { type: Action.FIND_MY_LOCATION }
   | { type: Action.ADD_ALERT; payload: { alert: AlertType } }
   | { type: Action.DELETE_ALERT; payload: { id: string } };
+
+export const addLocation = (location: string): Actions => ({
+  type: Action.ADD_LOCATION,
+  payload: { location },
+});
+
+export const findMyLocation = (): Actions => ({
+  type: Action.FIND_MY_LOCATION,
+});
+
+export const addAlert = (alert: AlertType): Actions => ({
+  type: Action.ADD_ALERT,
+  payload: { alert },
+});
+
+export const deleteAlert = (id: string): Actions => ({
+  type: Action.DELETE_ALERT,
+  payload: { id },
+});

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CloseIcon, NotificationIcon } from "../assets/icons";
-import { Action } from "../context/actions";
 import { AppContext } from "../context/context";
+import { deleteAlert } from "../context/actions";
+import { CloseIcon, NotificationIcon } from "../assets/icons";
 
 interface BannerAlertProps {
   id: string;
@@ -12,10 +12,6 @@ const defaultMessage = "An error has occurred.";
 
 const BannerAlert = ({ id, message = defaultMessage }: BannerAlertProps) => {
   const { dispatch } = useContext(AppContext);
-
-  const deleteAlert = () => {
-    dispatch({ type: Action.DELETE_ALERT, payload: { id } });
-  };
 
   return (
     <div className="bg-indigo-600 max-w-5xl rounded-md mx-auto">
@@ -29,7 +25,7 @@ const BannerAlert = ({ id, message = defaultMessage }: BannerAlertProps) => {
         <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
           <button
             type="button"
-            onClick={deleteAlert}
+            onClick={() => dispatch(deleteAlert(id))}
             className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
           >
             <span className="sr-only">Dismiss</span>
