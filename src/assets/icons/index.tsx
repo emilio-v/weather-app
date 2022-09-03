@@ -72,7 +72,7 @@ export const PlusIcon = ({
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
-    height="auto"
+    height="100%"
     viewBox="0 0 20 20"
     fill={color}
     {...props}

@@ -1,8 +1,12 @@
+import AddLocationButton from "../components/AddLocationButton";
+import WeatherList from "../components/WeatherList";
+
 const Weather = () => {
   return (
-    <>
-      <h1>Weather</h1>
-    </>
+    <div>
+      <WeatherList />
+      <AddLocationButton />
+    </div>
   );
 };
 
