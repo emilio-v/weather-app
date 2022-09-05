@@ -6,8 +6,8 @@ const WeatherList = () => {
 
   const items = useMemo(
     () =>
-      state.weather.locations.map((location) => (
-        <WeatherItem key={location} location={location} />
+      state.weather.locations.map((location, idx) => (
+        <WeatherItem key={`${idx}-${location}`} location={location} />
       )),
     [state.weather.locations]
   );

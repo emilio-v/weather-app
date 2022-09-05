@@ -8,8 +8,11 @@ const Alerts = () => {
   const alerts = useMemo(
     () =>
       state.alerts.map((alert) => (
-        <div className={state.alerts.length > 1 ? "mb-3.5" : "mb-0"}>
-          <BannerAlert key={alert.id} {...alert} />
+        <div
+          key={alert.id}
+          className={state.alerts.length > 1 ? "mb-3.5" : "mb-0"}
+        >
+          <BannerAlert {...alert} />
         </div>
       )),
     [state.alerts]
